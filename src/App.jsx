@@ -1,4 +1,5 @@
-// src/App.js
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Routes,
@@ -30,6 +31,19 @@ import AdminPanel from "./pages/AdminPanel";
 import ProductManagement from "./components/admin/ProductManagement";
 import OrderManagement from "./components/admin/OrderManagement";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
@@ -38,6 +52,7 @@ function App() {
           <OrderProvider>
             <WishlistProvider>
               <div className="flex flex-col min-h-screen">
+                <ScrollToTop />
                 <Header />
                 <main className="flex-grow">
                   <Routes>
