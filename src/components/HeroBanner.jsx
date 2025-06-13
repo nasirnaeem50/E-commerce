@@ -106,8 +106,8 @@ const HeroBanner = () => {
     <div className="relative">
       {/* Hero Title Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-purple-600 via-indigo-700 to-blue-800">
-        {/* Animated floating product images */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Animated floating product images - hidden on mobile */}
+        <div className="hidden sm:block absolute inset-0 overflow-hidden">
           {floatingProducts.map((product, index) => (
             <motion.div
               key={product.id}
@@ -139,13 +139,13 @@ const HeroBanner = () => {
         </div>
 
         {/* Content container */}
-        <div className="relative z-10 pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 pt-20 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 sm:mb-6"
             >
               Discover Our Latest Collection
             </motion.h1>
@@ -154,7 +154,7 @@ const HeroBanner = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xl md:text-2xl text-purple-100 mb-10 max-w-2xl mx-auto"
+              className="text-lg sm:text-xl md:text-2xl text-purple-100 mb-8 sm:mb-10 max-w-2xl mx-auto"
             >
               Premium quality products with exclusive discounts. Elevate your shopping experience today.
             </motion.p>
@@ -163,17 +163,17 @@ const HeroBanner = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row justify-center gap-4"
+              className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4"
             >
               <Link
                 to="/products"
-                className="px-8 py-4 bg-white text-purple-700 font-bold rounded-lg shadow-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-purple-700 font-bold rounded-lg shadow-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base"
               >
                 Shop Now
               </Link>
               <Link
                 to="/cart"
-                className="px-8 py-4 border-2 border-white text-white font-bold rounded-lg shadow-lg hover:bg-white hover:text-purple-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-white text-white font-bold rounded-lg shadow-lg hover:bg-white hover:text-purple-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base"
               >
                 View Cart
               </Link>
@@ -185,26 +185,26 @@ const HeroBanner = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
         >
-          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
         </motion.div>
       </div>
 
       {/* Product Slider Section */}
-      <div className="relative bg-gray-50 py-16">
+      <div className="relative bg-gray-50 py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Collections</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Featured Collections</h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
               Explore our curated selections of premium products
             </p>
           </div>
 
           {/* Slider container */}
-          <div className="relative overflow-hidden rounded-xl shadow-xl h-110 mb-8">
+          <div className="relative overflow-hidden rounded-xl shadow-xl h-[400px] sm:h-[500px] md:h-[600px] mb-6 sm:mb-8">
             {/* Background gradient with fade effect */}
             <div className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].color} opacity-95 transition-colors duration-1000`}></div>
             
@@ -221,26 +221,26 @@ const HeroBanner = () => {
                 className="absolute inset-0 flex items-center"
               >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
                     {/* Content */}
                     <motion.div
                       initial={{ x: -50, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
-                      className="text-center md:text-left"
+                      className="text-center md:text-left px-4 sm:px-0"
                     >
-                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-6">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 sm:mb-6">
                         {slide.title}
                       </h3>
                       
-                      <p className="text-xl text-white/90 mb-10">
+                      <p className="text-base sm:text-xl text-white/90 mb-6 sm:mb-10">
                         {slide.subtitle}
                       </p>
                       
-                      <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                         <Link
                           to="/products"
-                          className="px-8 py-3 bg-white text-purple-700 font-bold rounded-lg shadow-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                          className="px-6 py-2 sm:px-8 sm:py-3 bg-white text-purple-700 font-bold rounded-lg shadow-lg hover:bg-gray-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base"
                         >
                           {slide.cta}
                         </Link>
@@ -254,7 +254,7 @@ const HeroBanner = () => {
                       transition={{ duration: 0.8, delay: 0.4 }}
                       className="relative"
                     >
-                      <div className="relative w-full h-64">
+                      <div className="relative w-full h-48 sm:h-64">
                         <img 
                           src={slide.image} 
                           alt={slide.title} 
@@ -268,23 +268,24 @@ const HeroBanner = () => {
             ))}
 
             {/* Navigation controls */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex items-center gap-4">
+            <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex items-center gap-3 sm:gap-4">
               <button 
                 onClick={prevSlide}
-                className="p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+                className="p-1 sm:p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+                aria-label="Previous slide"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
               </button>
               
               {/* Progress indicators */}
-              <div className="flex gap-2">
+              <div className="flex gap-1 sm:gap-2">
                 {slides.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'}`}
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'}`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
@@ -292,9 +293,10 @@ const HeroBanner = () => {
               
               <button 
                 onClick={nextSlide}
-                className="p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+                className="p-1 sm:p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+                aria-label="Next slide"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                 </svg>
               </button>
@@ -316,23 +318,23 @@ const HeroBanner = () => {
           </div>
 
           {/* Featured Products Section */}
-          <div className="text-center mb-12 mt-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Products</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12 mt-12 sm:mt-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Featured Products</h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
               Discover our most popular items loved by customers worldwide
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <Link
               to="/products"
-              className="inline-block px-8 py-3 border-2 border-purple-600 text-purple-600 font-bold rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-300"
+              className="inline-block px-6 py-2 sm:px-8 sm:py-3 border-2 border-purple-600 text-purple-600 font-bold rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-300 text-sm sm:text-base"
             >
               View All Products
             </Link>
