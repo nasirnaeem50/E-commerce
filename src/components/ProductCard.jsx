@@ -83,8 +83,9 @@ const ProductCard = ({ product, onAddToCart, wishlistView = false }) => {
           transition: 'all 0.3s ease',
           overflow: 'hidden',
           position: 'relative',
-          maxWidth: wishlistView ? 180 : 'none',
-          margin: wishlistView ? '0 auto' : 'none',
+          maxWidth: wishlistView ? 180 : 300, // Added maxWidth for regular view
+          width: '100%', // Ensure it takes full width of its container
+          margin: '0 auto', // Center the card
           '&:hover': {
             boxShadow: wishlistView ? 'none' : theme.shadows[6],
             borderColor: wishlistView ? 'divider' : 'transparent'
@@ -281,7 +282,7 @@ const ProductCard = ({ product, onAddToCart, wishlistView = false }) => {
         </Link>
         
         <CardActions sx={{ 
-          p: wishlistView ? '8px !important' : 2, 
+          p: wishlistView ? '8px !important' : '12px !important', 
           pt: wishlistView ? 0 : 0 
         }}>
           {product.stock > 0 ? (
@@ -299,13 +300,18 @@ const ProductCard = ({ product, onAddToCart, wishlistView = false }) => {
                 color="primary"
                 fullWidth
                 size={wishlistView ? "small" : "medium"}
-                startIcon={<FlashOn />}
+                startIcon={<FlashOn sx={{ fontSize: wishlistView ? '1rem' : '1.25rem' }} />}
                 sx={{
                   fontWeight: 600,
                   py: wishlistView ? 0.5 : 1,
-                  fontSize: wishlistView ? '0.75rem' : 'inherit',
-                  minWidth: 0, // Added to prevent button expansion
-                  whiteSpace: 'nowrap', // Added to prevent text wrapping
+                  fontSize: wishlistView ? '0.7rem' : '0.75rem',
+                  minWidth: 0,
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  '& .MuiButton-startIcon': {
+                    marginRight: wishlistView ? '4px' : '6px'
+                  },
                   '&:hover': {
                     boxShadow: 'none'
                   }
@@ -321,13 +327,18 @@ const ProductCard = ({ product, onAddToCart, wishlistView = false }) => {
                 color="primary"
                 fullWidth
                 size={wishlistView ? "small" : "medium"}
-                startIcon={<ShoppingCart />}
+                startIcon={<ShoppingCart sx={{ fontSize: wishlistView ? '1rem' : '1.25rem' }} />}
                 sx={{
                   fontWeight: 600,
                   py: wishlistView ? 0.5 : 1,
-                  fontSize: wishlistView ? '0.75rem' : 'inherit',
-                  minWidth: 0, // Added to prevent button expansion
-                  whiteSpace: 'nowrap' // Added to prevent text wrapping
+                  fontSize: wishlistView ? '0.7rem' : '0.75rem',
+                  minWidth: 0,
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  '& .MuiButton-startIcon': {
+                    marginRight: wishlistView ? '4px' : '6px'
+                  }
                 }}
               >
                 Add to Cart
@@ -343,9 +354,11 @@ const ProductCard = ({ product, onAddToCart, wishlistView = false }) => {
                 fontWeight: 600,
                 color: 'text.disabled',
                 borderColor: 'divider',
-                fontSize: wishlistView ? '0.75rem' : 'inherit',
-                minWidth: 0, // Added to prevent button expansion
-                whiteSpace: 'nowrap' // Added to prevent text wrapping
+                fontSize: wishlistView ? '0.7rem' : '0.75rem',
+                minWidth: 0,
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
               }}
             >
               Out of Stock
